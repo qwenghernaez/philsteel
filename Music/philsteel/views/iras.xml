@@ -1,0 +1,93 @@
+<odoo>
+	<data>
+
+		<record model="ir.actions.act_window" id="iras_action">
+            <field name="name">Investigation / Retification</field>
+            <field name="res_model">philsteel.iras</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create your first position</p>
+            </field>
+        </record>
+
+     	<record model="ir.ui.view" id="inquiry_form_view">
+            <field name="name">iras.form</field>
+            <field name="model">philsteel.iras</field>
+            <field name="arch" type="xml">
+                <form string="Center Form">
+                    <header>
+                        <button name="action_approved" groups="philsteel.group_supervisor,philsteel.group_manager" string="Solved" type="object" class="btn-primary" attrs="{'invisible': ['|','|',('statuss','!=','draft')]}" />
+                        <field name="statuss" widget="statusbar" options="{'fold_field': 'fold'}" />
+                    </header>
+                    <sheet>
+                        <group><field name="name" /></group>
+                        <group><field name="location"/></group>
+                        <!-- <group>
+                            <field name="image" widget="image" class="oe_avatar"/>
+                            <field name="name" />
+                            <field name="location" readonly="1"/>
+                        </group> -->
+                        <group><field name="ic_no"/></group>
+                        <group><field name="sc_no"/></group>
+                       
+                        <group>
+                            <field name="noc_status" />
+                        </group>
+                        <group>
+                            <field name="noc_date" attrs="{'invisible': [('noc_status','!=','with_noc')]}" />
+                        </group>
+                        <notebook>
+                            <page string="Particular Problems">
+                                <p> Please specify exact locations and attach sketch if required.</p>
+                                <group>
+                                    <group><field name="jobsite_sketch" widget="image" class="oe_avatar"/></group>
+                                    <group><field name="particular_problems" /></group>
+                                </group>
+                            </page>
+                            <page string="Actual Observation">
+                                <group>
+                                    <field name="observation" />
+                                </group>
+                            </page>
+                            <page string="Duration of Rectification">
+                                <group>
+                                    <field name="from_date" />
+                                </group>
+                                <group>
+                                    <field name="to_date" />
+                                </group>
+                            </page>
+                            <page string="Investigation Performed by">
+                                <group>
+                                    <field name="personnel" />
+                                </group>
+                            </page>
+                            <page string="Remarks">
+                                <group>
+                                    <field name="remarkss" />
+                                </group>
+                            </page>
+                            <page string="Signatory">
+                                <group><field name="prepare_by" /></group>
+                                <group><field name="noted_by" /></group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="iiras_tree_view">
+            <field name="name">iras.tree</field>
+            <field name="model">philsteel.iras</field>
+            <field name="arch" type="xml">
+               <tree string="Investigation / Retification">
+                    <field name="name" />
+                    <field name="statuss" />
+               </tree>
+            </field>
+        </record>
+
+	</data>
+</odoo>

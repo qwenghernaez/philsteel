@@ -1,0 +1,42 @@
+<odoo>
+	<data>
+
+		<record model="ir.actions.act_window" id="position_action">
+            <field name="name">Positions</field>
+            <field name="res_model">philsteel.positions</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create your first position</p>
+            </field>
+        </record>
+
+
+     	<record model="ir.ui.view" id="philsteel_positions_form_view">
+            <field name="name">positions.form</field>
+            <field name="model">philsteel.positions</field>
+            <field name="arch" type="xml">
+                <form string="Center Form">
+                    <sheet>
+                        <group>
+                            <field name="name" />
+                            <field name="description" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="philsteel_positions_tree_view">
+            <field name="name">positions.tree</field>
+            <field name="model">philsteel.positions</field>
+            <field name="arch" type="xml">
+               <tree string="Positions">
+                    <field name="name" />
+                    <field name="description" />
+               </tree>
+            </field>
+        </record>
+
+	</data>
+</odoo>

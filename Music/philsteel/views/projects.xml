@@ -1,0 +1,47 @@
+<odoo>
+	<data>
+
+		<record model="ir.actions.act_window" id="philsteel_project_action">
+            <field name="name">Projects</field>
+            <field name="res_model">philsteel.projects</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create your first position</p>
+            </field>
+        </record>
+
+     	<record model="ir.ui.view" id="philsteel_project_form_view">
+            <field name="name">projects.form</field>
+            <field name="model">philsteel.projects</field>
+            <field name="arch" type="xml">
+                <form string="Center Form">
+                    <sheet>
+                        <group>
+                            <field name="image" widget="image" class="oe_avatar"/>
+                            <field name="name" />
+                            <field name="customer_name" />
+                            <field name="location" />
+                            <field name="types_of_project" />
+                            <group><field name="ic_no" /></group>
+                            <group><field name="sc_no" /></group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="philsteel_project_tree_view">
+            <field name="name">philsteel_project.tree</field>
+            <field name="model">philsteel.projects</field>
+            <field name="arch" type="xml">
+               <tree string="Projects">
+                    <field name="name" />
+                    <field name="customer_name" />
+                    <field name="types_of_project" />
+               </tree>
+            </field>
+        </record>
+
+	</data>
+</odoo>

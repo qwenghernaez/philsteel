@@ -1,0 +1,79 @@
+<odoo>
+	<data>
+
+		<record model="ir.actions.act_window" id="project_manpower_action">
+            <field name="name">Project Manpower</field>
+            <field name="res_model">philsteel.projectmanpower</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+     	<record model="ir.ui.view" id="projectmanpower_view">
+            <field name="name">projectmanpower.form</field>
+            <field name="model">philsteel.projectmanpower</field>
+            <field name="arch" type="xml">
+                <form string="Center Form">
+                    <sheet>
+                        <field name="image" widget='image' class="oe_avatar pull-left"
+                               options='{"preview_image": "image_medium", }'/>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" placeholder="eg: Juan Dela Cruz" />
+                            </h1>
+                            <h3> 
+                                <field name="company_id" placeholder="Company" /> 
+                            </h3> 
+                        </div>
+                        <group>
+                            <field name="positions" />
+                            <field name="code" string="Internal ID"/>
+                        </group>
+                        <notebook>
+                            <page string="General Information">
+                                <group>
+                                    <field name="active"/>
+                                    <field name="mobile" placeholder="e.g. +506 5555 5555"/>
+                                    <field name="email" widget="email" />
+                                </group>
+                                <group>
+                                    <label for="street" string="Address"/>
+                                    <div>
+                                        <!--<field name="use_parent_address" invisible="1"/>-->
+                                        <field name="street" placeholder="Street..."/>
+                                        <field name="street2" />
+                                        <div class="address_format">
+                                            <field name="city" placeholder="City" style="width: 40%%" />
+                                            <field name="state_id" class="no_button" placeholder="State" style="width: 37%%" options='{"no_open": True}' />
+                                            <field name="zip" placeholder="ZIP" style="width: 20%%" />
+                                        </div>
+                                        <field name="country_id" placeholder="Country" class="no_button" options='{"no_open": True}' />
+                                    </div>
+                                </group>
+                            </page>
+                            <page string="Extra Information">
+                                <group>
+                                    <field name="info" colspan="4"/>
+                                </group>
+                                
+                            </page>
+                        </notebook>
+                     </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="project_manpower_tree_view">
+            <field name="name">project_manpower.tree</field>
+            <field name="model">philsteel.projectmanpower</field>
+            <field name="arch" type="xml">
+               <tree string="Manpower">
+                   <field name="name"/>
+                   <field name="positions"/>
+               </tree>
+            </field>
+        </record>
+
+	</data>
+</odoo>

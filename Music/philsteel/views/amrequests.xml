@@ -1,0 +1,152 @@
+<odoo>
+	<data>
+		
+		<record model="ir.ui.view" id="center_form_view">
+            <field name="name">RFAM</field>
+            <field name="model">philsteel.amrequests</field>
+            <field name="arch" type="xml">
+                <form string="RFAM Form">
+                    <header>
+                        <button name="action_approved" groups="philsteel.group_manager" string="Approved" type="object" class="btn-primary" attrs="{'invisible': ['|','|',('statuss','!=','draft')]}" />
+                        <button name="action_ongoing" groups="philsteel.group_manager" string="Ongoing" type="object" class="btn-primary" attrs="{'invisible': ['|','|',('statuss','!=','approved')]}" />
+                        <button name="action_done" groups="philsteel.group_manager" string="Done" type="object" class="btn-primary" attrs="{'invisible': ['|','|',('statuss','!=','ongoing')]}" />
+                        <field name="statuss" widget="statusbar" options="{'fold_field': 'fold'}" />
+                    </header>
+                    <sheet>
+                        <!--<group string="Sketch">
+                            <field name="image" widget="image"/>
+                        </group>-->
+                        <group string="General">
+                            <group><field name="name" /></group>
+                            <group><field name="status" /></group>
+                            <group><field name="customer" /></group>
+                            <group>
+                                <field name="request_number" />
+                            </group>
+                            <group><field name="location"/></group>
+                            
+                            <group>
+                                <field name="project_type" />
+                            </group>
+                            <field name="project_site_address" string='Complete Project Site Address' />
+
+                            <field name="general_contractor" />
+
+                            <field name="product_profile" />
+                            <field name="assigned_by" />
+                            
+                        </group>
+                        <notebook>
+                            <page string="Contact Details">
+                                <group> <field name="jobsite_contact_number" /></group>
+                                <group> <field name="contact_person_at_site" /></group>
+                            </page>
+                            <page string="References" >
+                                <group>
+                                    <field name="sc_number"/>
+                                    <field name="ic_number"/>
+                                    <field name="sq_number"/>
+                                    <field name="iq_number"/>
+                                </group>
+
+                            </page>
+                            <page string="Pre Installation">
+                                
+                                <group>
+                                   
+                                 
+                                <field name="floors_available_for_measurement"/>
+                                <field name="frames_trusses_installed"/>
+                                <field name="purlins_installed"/>
+                                <field name="sogrod_installed"/>
+                                 
+                                </group>
+                            </page>
+                            <page string="Request for Measurement">
+                                <group><field name="ready_for_measurement_date"/></group>
+                                <group string="Request for measurement for: ">
+                                        <group><field name="rfm_quotation"/></group>
+                                        <group><field name="rfm_contract"/></group>
+                                        <group><field name="rfm_fabrication"/></group>
+                                        <group><field name="rfm_tech1assistance"/></group>
+                                        <group><field name="rfm_others"/></group>
+                                </group>
+                            </page>
+                            <page string="Scope of Work">
+                                <field name="work_scope" />
+                            </page>
+                            <page string="Illustrations">
+                                <field name="illustrations"/>
+                            </page>
+
+                            <page string="Signatory">
+                                <group>
+                                    <field name="ready_for_measurement_date" />
+                                    <field name="date_filed" />
+                                    <field name="accomplished_by" />
+                                </group>
+                                <group>
+                                    <field name="approved_by" />
+                                </group>
+                            </page>
+                        </notebook>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    <!--
+        <record model="ir.ui.view" id="center_tree_view">
+            <field name="name">center.tree</field>
+            <field name="model">odoo_medical.center</field>
+            <field name="arch" type="xml">
+               <tree string="Centers">
+                   <field name="name"/>
+                   <field name="contact_number"/>
+                   <field name="address"/>
+               </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="center_search_view">
+            <field name="name">center.search</field>
+            <field name="model">odoo_medical.center</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="contact_number"/>
+                    <field name="address"/>
+                </search>
+            </field>
+        </record>
+    -->
+
+        <record model="ir.actions.act_window" id="measurement_request_action">
+            <field name="name">RFAMS</field>
+            <field name="res_model">philsteel.amrequests</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create your first request</p>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="measurement_request_tree_view">
+            <field name="name">measurement_request.tree</field>
+            <field name="model">philsteel.amrequests</field>
+            <field name="arch" type="xml">
+               <tree string="AMRequests">
+                    <field name="name" />
+                    <field name="customer" />
+                    <field name="project_type" />
+                    <field name="assigned_by" />
+                    <field name="statuss" />
+               </tree>
+            </field>
+        </record>
+
+
+	</data>
+</odoo>

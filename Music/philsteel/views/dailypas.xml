@@ -1,0 +1,167 @@
+<odoo>
+	<data>
+
+		<record model="ir.actions.act_window" id="daily_accomplishment_report_action">
+            <field name="name">Daily Project Accomplishment Report</field>
+            <field name="res_model">philsteel.dailypas</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create your first report</p>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="dailypas_tree_view">
+            <field name="name">dailypas.tree</field>
+            <field name="model">philsteel.dailypas</field>
+            <field name="arch" type="xml">
+               <tree string="Daily Project Accomplishment Report">
+                    <field name="name" />
+                    <field name="statuss" />
+               </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="daily_accomplishment_form_view">
+            <field name="name">dailypas.form</field>
+            <field name="model">philsteel.dailypas</field>
+            <field name="arch" type="xml">
+                <form string="Daily Project Accomplishment Report">
+                    <header>
+                        <button name="action_approved" string="Approved" type="object" class="btn-primary" attrs="{'invisible': ['|','|',('statuss','!=','draft')]}" />
+                        <field name="statuss" widget="statusbar" options="{'fold_field': 'fold'}" />
+                    </header>
+                    <sheet>
+                        <group string="General">
+                                <field name="name" />
+                                <field name="ic_no" />
+                                <field name="sc_no" />
+                                <field name="location" />
+                                <field name="subcon" />
+                            <group>
+                                <field name="duration" />
+                                <field name="date_start" />
+                                <field name="date_complete" />
+                                <field name="sales_engineer" />
+                            </group>
+                            <group>
+                                <field name="particular" />
+                                <field name="unit" />
+                                <field name="qty" />
+                                <field name="weight_factor" />
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Accomplishments">
+                                <group string="Accomplishments" >
+                                    <notebook>
+                                        <page string="Previous">
+                                            <group><field name="qty_prev" /></group>
+                                            <group><field name="percent_prev" /></group>
+                                        </page>
+                                        <page string="This Period">
+                                            <group><field name="qty_thisperiod" /></group>
+                                            <group><field name="percent_thisperiod" /></group>
+                                        </page>
+                                        <page string="To Date">
+                                            <group><field name="qty_todate" /></group>
+                                            <group><field name="percent_todate" /></group>
+                                            <group><field name="weight" /></group>
+                                        </page>
+                                        <page string="Next Day Work Program">
+                                            <group><field name="day_work_program" /></group>
+                                        </page>
+                                        <page string="Remarks">
+                                            <group><field name="remarks" /></group>
+                                        </page>
+                                        
+                                    </notebook>
+                            </group>
+                            </page>
+                            <page string="Status">
+                                <notebook>
+                                        <page string="Time Start">
+                                            <group><field name="time_start_from" /></group>
+                                            <group><field name="time_start_to" /></group>
+                                        </page>
+                                        <page string="Wheather">
+                                            <group><field name="wheather" /></group>
+                                            <group>
+                                            <field name="wheather_from_date" />
+                                            </group>
+                                            <group>
+                                            <field name="wheather_to_date" />
+                                            </group>
+                                        </page>
+                                        <page string="Man Power">
+                                            <group><field name="manpower_status" /></group>
+                                            
+                                        </page>
+                                        <page string="Material">
+                                            <group><field name="material_status" /></group>
+                                        </page>
+                                        <page string="Equipment">
+                                            <group><field name="equipment_status" /></group>
+                                        </page>
+                                    </notebook>
+                            </page>
+                            <page string="Sketch">
+                                <notebook>
+                                    <page string="Accomplisment (Before and After)">
+                                        <group><field name="accomplisment_image" /></group>
+                                    </page>
+                                    <page string="Site Condition">
+                                        <group><field name="site_condition" /></group>
+                                    </page>
+                                    <page string="Material Condition">
+                                        <group><field name="status_materials" /></group>
+                                    </page>
+                                </notebook>
+                            </page>
+                            <page string="Signatory">
+                                <group><field name="proj_incharge" /></group>
+                                <group><field name="client_rep" /></group>
+                            </page>
+                        </notebook>
+                        
+                        <!-- <notebook>
+                            <page string="Man Power">
+                                <field name="man_power" />
+                            </page>
+                            <page string="Tools and Equipments">
+                                <field name="tool_equipment" />
+                            </page>
+                             <page string="Work Scope">
+                                <field name="work_scope" />
+                            </page>
+                            <page string="Concerns">
+                                <group>
+                                    <field name="activity" />
+                                </group>
+                                <group>
+                                    <field name="material" />
+                                </group>
+                                <group >
+                                    <field name="other_concerns" />
+                                </group>
+                        
+                            </page>
+                            <page string="Signatory">
+                                <group >
+                                    <group>
+                                        <field name="prepared_by" />
+                                    </group>
+                                    <group>
+                                    <field name="approved_by" />
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook> -->
+                        
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+	</data>
+</odoo>

@@ -1,0 +1,113 @@
+<odoo>
+	<data>
+
+		<record model="ir.actions.act_window" id="inquire_action">
+            <field name="name">Customer Inquiry</field>
+            <field name="res_model">philsteel.customer_inquiry</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create your first position</p>
+            </field>
+        </record>
+
+     	<record model="ir.ui.view" id="inquire_form_view">
+            <field name="name">customer_inquiry.form</field>
+            <field name="model">philsteel.customer_inquiry</field>
+            <field name="arch" type="xml">
+                <form string="Center Form">
+                    <header>
+                        <button name="action_approved" string="Approved" type="object" class="btn-primary" attrs="{'invisible': ['|','|',('statuss','!=','draft')]}" />
+                        <field name="statuss" widget="statusbar" options="{'fold_field': 'fold'}" />
+                    </header>
+                    <sheet>
+                        <group><field name="image" widget="image" class="oe_avatar"/></group>
+                        <group><field name="name" /></group>
+                        <group><field name="client"/></group>
+                        <group><field name="location"/></group>
+                       
+                        <group>
+                            <group><field name="ic_no"/></group>
+                            <group><field name="sc_no"/></group>
+                        </group>
+                        <group>
+                            <group><field name="date_mobilization"/></group>
+                            <group><field name="date_complete"/></group>
+                        </group>
+                        <group>
+                            <group><field name="manager_south"/></group>
+                            <group><field name="proj_incharge"/></group>
+                            <group><field name="sub_contractor"/></group>
+                        </group>
+                        <notebook>
+                            <page string="Scope of Work">
+                                <group string="Work Scope">
+                                    <field name="workscope" />\
+                                </group>
+                            </page>
+                            <page string="Quality">
+                                <group string="Quality">
+                                    <field name="duration_of_works" />
+                                    <field name="tools_and_equipments" />
+                                    <field name="workmanship" />
+                                    <field name="finished_appearance" />
+                                </group>
+                                <group><field name="quality_remarks" /></group>
+                            </page>
+                            <page string="Safety">
+                                <group string="Safety">
+                                    <field name="safety_initiative" />
+                                    <field name="work_attitude" />
+                                    <field name="safety_rules_regulation" />
+                                    <field name="use_of_ppe" />
+                                </group>
+                                <group><field name="safety_remarks" /></group>
+                            </page>
+                            <page string="Supervision">
+                                <group string="Safety">
+                                    <field name="communicating_client" />
+                                    <field name="expertise" />
+                                    <field name="control_over_workers" />
+                                    <field name="reactions_to_problems" />
+                                    <field name="effectiveness_of_supervision" />
+                                    <field name="personality" />
+                                </group>
+                                <group><field name="supervision_remarks" /></group>
+                            </page>
+                            <page string="NICA Status">
+                                <group string="Notice of Installation Completion and Acceptance">
+                                    <field name="nica_status" />
+                                    <field name="nica_signed_date" attrs="{'invisible': [('nica_status','!=','signed')]}" />
+                                    <field name="nica_reason" attrs="{'invisible': [('nica_status','!=','not_yet_signed')]}" />
+
+                                </group>
+                            </page>
+                            <page string="Over-all Remarks">
+                                <group><field name="overall_remarks" /></group>
+                                
+                            </page>
+                            <page string="Signatory">
+                                <group><field name="personnel" /></group>
+                                <group><field name="accomplish_date" /></group>
+                                
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="customer_inquiry_tree_view">
+            <field name="name">customer_inquiry.tree</field>
+            <field name="model">philsteel.customer_inquiry</field>
+            <field name="arch" type="xml">
+               <tree string="Customer Inquiry">
+                    <field name="name" />
+                    <field name="client" />
+                    <field name="statuss" />
+               </tree>
+            </field>
+        </record>
+
+	</data>
+</odoo>

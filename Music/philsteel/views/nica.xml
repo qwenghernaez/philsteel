@@ -1,0 +1,61 @@
+<odoo>
+	<data>
+
+		<record model="ir.actions.act_window" id="philsteel_nica_action">
+            <field name="name">Notice of Installation Completion and Acceptance</field>
+            <field name="res_model">philsteel.nica</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create your first position</p>
+            </field>
+        </record>
+
+     	<record model="ir.ui.view" id="philsteel_nica_form_view">
+            <field name="name">nica.form</field>
+            <field name="model">philsteel.nica</field>
+            <field name="arch" type="xml">
+                <form string="Center Form">
+                    <header>
+                        <button name="action_approved" groups="philsteel.group_supervisor,philsteel.group_manager" string="Approved" type="object" class="btn-primary" attrs="{'invisible': ['|','|',('statuss','!=','draft')]}" />
+                        <field name="statuss" widget="statusbar" options="{'fold_field': 'fold'}" />
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="image" widget="image" class="oe_avatar"/>
+                            <field name="name" />
+                            <field name="client"/>
+                            <field name="location"/>
+                            <group><field name="ic_no"/></group>
+                            <group><field name="sc_no"/></group>
+                            <field name="date_complete" />
+                        </group>
+                        <notebook>
+                            <page string="Work Scope">
+                                <group><field name="workscope" /></group>
+                            </page>
+                            <page string="Signatory">
+                                <group><field name="personnel" /></group>
+                                <group><field name="positions" /></group>
+                                
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="philsteel_nica_tree_view">
+            <field name="name">nica.tree</field>
+            <field name="model">philsteel.nica</field>
+            <field name="arch" type="xml">
+               <tree string="Manpower">
+                    <field name="name" />
+                    <field name="client" />
+                    <field name="statuss" />
+               </tree>
+            </field>
+        </record>
+
+	</data>
+</odoo>

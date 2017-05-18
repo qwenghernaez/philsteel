@@ -1,0 +1,159 @@
+<odoo>
+	<data>
+
+		<record model="ir.actions.act_window" id="cicf_action">
+            <field name="name">Customer Installation Complain</field>
+            <field name="res_model">philsteel.cicf</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create your first report</p>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="cicf_tree_view">
+            <field name="name">cicf.tree</field>
+            <field name="model">philsteel.cicf</field>
+            <field name="arch" type="xml">
+               <tree string="Customer Installation Complain">
+                    <field name="complain_date" />
+                    <field name="name" />
+                    <field name="client" />
+                    <field name="statuss" />
+               </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="cicf_form_view">
+            <field name="name">cicf.form</field>
+            <field name="model">philsteel.cicf</field>
+            <field name="arch" type="xml">
+                <form string="Customer Installation Complain">
+                    <header>
+                        <button name="action_approved" groups="philsteel.group_supervisor,philsteel.group_manager" string="Solved" type="object" class="btn-primary" attrs="{'invisible': ['|','|',('statuss','!=','draft')]}" />
+                        <field name="statuss" widget="statusbar" options="{'fold_field': 'fold'}" />
+                    </header>
+                    <sheet>
+                        <group string="General">
+                                <group><field name="complain_date" /></group>
+                                <group><field name="cicf_no"/></group>
+                                <field name="name"/>
+                                <field name="location"/>
+                                <field name="client"/>
+                                <field name="client_code"/>
+                                <field name="date_action_required"/>
+                                <field name="dept"/>
+                        </group>
+                        <group string="References" >
+                            <notebook>
+                                <page string="References">
+                                    <group><field name="ic_no" /></group>
+                                    <group><field name="sc_no" /></group>
+                                    <group><field name="nica_signed_date" /></group>
+                                </page>
+                                <page string="Contact">
+                                    <group><field name="jobsite_contacts" /></group>
+                                    <group><field name="designation"/></group>
+                                    <group><field name="tel_no"/></group>
+                                </page>
+                                <page string="Jobsite Sketch">
+                                    <group><field name="jobsite_image" /></group>
+                                </page>
+                                <page string="Particulars">
+                                    <group><field name="particularss" /></group>
+                                </page>
+                                <page string="Signatory">
+                                    <group>
+                                        <field name="prep_by" />
+                                    </group>
+                                    <group>
+                                        <field name="prep_date" />
+                                    </group>
+                                    <group>
+                                        <field name="endorsed_by" />
+                                    </group>
+                                    <group>
+                                        <field name="endorsed_date" />
+                                    </group>
+                                    <group>
+                                        <field name="approved_by" />
+                                    </group>
+                                    <group>
+                                        <field name="approved_date" />
+                                    </group>
+                                    <group>
+                                        <field name="acknowledge_by" />
+                                    </group>
+                                    <group>
+                                        <field name="acknowledge_date" />
+                                    </group>
+                                </page>
+                                
+                            </notebook>
+                            <!-- <group>
+                                <field name="inspection_date" />
+                            </group>
+                            <group>
+                                <field name="wheather" />
+                            </group>
+                            <field name="location" />
+                            <group>
+                                <field name="ic_number" />
+                                <field name="sc_number" />
+                            </group>
+                            <group>
+                                <field name="arrival_time" />
+                                <field name="departure_time" />
+                            </group>
+                            <field name="accomplishment_date" />
+                            <group>
+                                <p>Scope of Work:</p>
+                            </group>
+                            <group>
+                                <field name="roofing" />
+                                <field name="deckings" />
+                                <field name="cladding" />
+                                <field name="other" />
+                            </group> -->
+                        </group>
+                        <!-- <notebook>
+                            <page string="Man Power">
+                                <field name="man_power" />
+                            </page>
+                            <page string="Tools and Equipments">
+                                <field name="tool_equipment" />
+                            </page>
+                             <page string="Work Scope">
+                                <field name="work_scope" />
+                            </page>
+                            <page string="Concerns">
+                                <group>
+                                    <field name="activity" />
+                                </group>
+                                <group>
+                                    <field name="material" />
+                                </group>
+                                <group >
+                                    <field name="other_concerns" />
+                                </group>
+                        
+                            </page>
+                            <page string="Signatory">
+                                <group >
+                                    <group>
+                                        <field name="prepared_by" />
+                                    </group>
+                                    <group>
+                                    <field name="approved_by" />
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook> -->
+                        
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+	</data>
+</odoo>

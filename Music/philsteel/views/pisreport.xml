@@ -1,0 +1,98 @@
+<odoo>
+	<data>
+
+		<record model="ir.actions.act_window" id="pisreport_action">
+            <field name="name">Project Inspection and Safety Report</field>
+            <field name="res_model">philsteel.pisreports</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create your first report</p>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="pisreport_tree_view">
+            <field name="name">pisreport.tree</field>
+            <field name="model">philsteel.pisreports</field>
+            <field name="arch" type="xml">
+               <tree string="Project Inspection and Safety Report">
+                    <field name="name" />
+                    <field name="client" />
+                    <field name="statuss" />
+               </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="pisreport_form_view">
+            <field name="name">pisreport.form</field>
+            <field name="model">philsteel.pisreports</field>
+            <field name="arch" type="xml">
+                <form string="Project Inspection and Safety Report">
+                    <header>
+                        <button name="action_approved" groups="philsteel.group_supervisor,philsteel.group_manager" string="Approved" type="object" class="btn-primary" attrs="{'invisible': ['|','|',('statuss','!=','draft')]}" />
+                        <field name="statuss" widget="statusbar" options="{'fold_field': 'fold'}" />
+                    </header>
+                    
+                    <sheet>
+                        <group string="General">
+                            <field name="name" />
+                            <field name="client"/>
+                            <group>
+                                <field name="inspection_date" />
+                            </group>
+                            <group>
+                                <field name="wheather" />
+                            </group>
+                            <field name="location"/>
+                            <group>
+                                <field name="ic_number"/>
+                                <field name="sc_number"/>
+                            </group>
+                            <group>
+                                <field name="arrival_time" />
+                                <field name="departure_time" />
+                            </group>
+                            <field name="accomplishment_date" />
+                            <field name="site_representative" />
+                        </group>
+                        <notebook>
+                            <page string="Man Power">
+                                <field name="man_power" />
+                            </page>
+                            <page string="Tools and Equipments">
+                                <field name="tool_equipment" />
+                            </page>
+                             <page string="Work Scope">
+                                <field name="work_scope" />
+                            </page>
+                            <page string="Concerns">
+                                <group>
+                                    <field name="activity" />
+                                </group>
+                                <group>
+                                    <field name="material" />
+                                </group>
+                                <group >
+                                    <field name="other_concerns" />
+                                </group>
+                        
+                            </page>
+                            <page string="Signatory">
+                                <group >
+                                    <group>
+                                        <field name="prepared_by" />
+                                    </group>
+                                    <group>
+                                    <field name="approved_by" />
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                        
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+	</data>
+</odoo>

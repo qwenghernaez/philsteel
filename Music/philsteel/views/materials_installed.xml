@@ -1,0 +1,48 @@
+<odoo>
+	<data>
+
+		<record model="ir.actions.act_window" id="materials_installed_action">
+            <field name="name">Materials Installed</field>
+            <field name="res_model">philsteel.materiales</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">List the material installed</p>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="materiales_form_view">
+            <field name="name">materiales.form</field>
+            <field name="model">philsteel.materiales</field>
+            <field name="arch" type="xml">
+                <form string="Center Form">
+                    <sheet>
+                        <group>
+                        	<field name="image" widget="image" class="oe_avatar"/>
+                        	<field name="name" />
+                            <field name="prices" />
+                        </group>
+                        <group>
+                            <field name="pieces_installed" />
+                        </group>
+                        <group>
+                            <field name="total_price_installed" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="materiales_tree_view">
+            <field name="name">materiales.tree</field>
+            <field name="model">philsteel.materiales</field>
+            <field name="arch" type="xml">
+               <tree string="Materials Installed">
+                    <field name="name" />
+                    <field name="prices" />
+               </tree>
+            </field>
+        </record>
+
+	</data>
+</odoo>

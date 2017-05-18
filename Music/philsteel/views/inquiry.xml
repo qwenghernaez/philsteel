@@ -1,0 +1,61 @@
+<odoo>
+	<data>
+
+		<record model="ir.actions.act_window" id="inquiryx_action">
+            <field name="name">trylang</field>
+            <field name="res_model">philsteel.customer_inquiry</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create your first position</p>
+            </field>
+        </record>
+
+     	<record model="ir.ui.view" id="inquiry_form_view">
+            <field name="name">inquiry.form</field>
+            <field name="model">philsteel.customer_inquiry</field>
+            <field name="arch" type="xml">
+                <form string="Center Form">
+                    <header>
+                        <button name="action_approved" groups="philsteel.group_supervisor,philsteel.group_manager" string="Approved" type="object" class="btn-primary" attrs="{'invisible': ['|','|',('statuss','!=','draft')]}" />
+                        <field name="statuss" widget="statusbar" options="{'fold_field': 'fold'}" />
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="image" widget="image" class="oe_avatar"/>
+                            <field name="name" readonly="1"/>
+                            <field name="client" readonly="1"/>
+                            <field name="location" readonly="1"/>
+                        </group>
+                        <group>
+                            <group><field name="ic_no" readonly="1"/></group>
+                            <group><field name="sc_no" readonly="1"/></group>
+                        </group>
+                        <group>
+                            <field name="date_mobilization" />
+                            <field name="date_complete" />
+                        </group>
+                        <group>
+                            <field name="manager_south" />
+                            <field name="proj_incharge" />
+                            <field name="sub_contractor" />
+                        </group>
+                        
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="inquiry_tree_view">
+            <field name="name">inquiry.tree</field>
+            <field name="model">philsteel.customer_inquiry</field>
+            <field name="arch" type="xml">
+               <tree string="Manpower">
+                    <field name="name" />
+                    <field name="location" />
+               </tree>
+            </field>
+        </record>
+
+	</data>
+</odoo>
