@@ -1,0 +1,313 @@
+<odoo>
+	<data>
+		<record model="ir.actions.act_window" id="sheet_action">
+            <field name="name">Project Information Sheet</field>
+            <field name="res_model">philsteel.infosheet</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create your first report</p>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="sheet_tree_view">
+            <field name="name">sheet.tree</field>
+            <field name="model">philsteel.infosheet</field>
+            <field name="arch" type="xml">
+               <tree string="Project Information Sheet">
+                    <field name="name" />
+                    <field name="client" />
+                    <field name="statuss" />
+               </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="sheet_form_view">
+            <field name="name">sheet.form</field>
+            <field name="model">philsteel.infosheet</field>
+            <field name="arch" type="xml">
+                <form string="Project Information Sheet">
+                    <header>
+                        <button name="action_approved"  groups="philsteel.group_supervisor,philsteel.group_manager" string="Approved" type="object" class="btn-primary" attrs="{'invisible': ['|','|',('statuss','!=','draft')]}" />
+                        <field name="statuss" widget="statusbar" options="{'fold_field': 'fold'}" />
+                    </header>
+                    <sheet>
+                        <group string="General">
+                            <field name="name" />
+                            <field name="client"/>
+                            <field name="location"/>
+                            <group>
+                                <field name="tel_number" />
+                                <field name="ic_number" />
+                            </group>
+                            <group>
+                                <field name="fax_number" />
+                                <field name="sc_number" />
+                            </group>
+                            
+                        </group>
+                        <notebook>
+                            <page string="Contacts">
+                                <field name="contact_person" />
+                            </page>
+                            <page string="Work Scope">
+                                <field name="work_scopes" />
+                            </page>
+                            <page string="Specifications">
+                                <notebook>
+                                    <page string="Page 1">
+                                        <group string="STRUCTURE">
+                                            <group><field name="crazy" /></group>
+                                            <group><field name="semi_crazy" /></group>
+                                            <group><field name="wood" /></group>
+                                            <group><field name="steel" /></group>
+                                            <group><field name="Others" /></group>
+                                            <group><field name="building_height" /></group>
+                                            <group><field name="storeys_no" /></group>
+                                            <group><field name="safe_access" /></group>
+                                        </group>
+                                        <group string="ROOFING PROFILE">
+                                            <group><field name="types_a" /></group>
+                                            <group><field name="total_area_a" /></group>
+                                            <group><field name="color_a" /></group>
+                                            <group><field name="thickness_a" /></group>
+                                            <group><field name="max_length" /></group>
+                                        </group>
+                                        <group string="SIDING PROFILE"> 
+                                            <group><field name="types_b" /></group>
+                                            <group><field name="total_area_b" /></group>
+                                            <group><field name="color_b" /></group>
+                                            <group><field name="thickness_b" /></group>
+                                        </group>
+                                        <group string="CEILING PROFILE">
+                                            
+                                            <group><field name="types_c" /></group>
+                                            <group><field name="total_area_c" /></group>
+                                            <group><field name="color_c" /></group>
+                                            <group><field name="thickness_c" /></group>
+                                            <group><field name="ceiling_framing" /></group>
+                                            <group><field name="not_included" /></group>
+                                            <group><field name="hat_section" /></group>
+                                            <group><field name="tee_runner" /></group>
+                                            <group><field name="metal_furring" /></group>
+                                            <group><field name="otherss" /></group>
+                                        </group>
+                                        <group string="PENETRATION FLASHING">
+                                            
+                                            <group><field name="with_penetration" /></group>
+                                            <group><field name="without_penetration" /></group>
+                                        </group>
+                                        <group string="FASTENING">
+                                            
+                                            <group><field name="teks_screw" /></group>
+                                            <group><field name="strap_rivet" /></group>
+                                            <group><field name="conceal" /></group>
+                                            <group><field name="anchor_bolts" /></group>
+                                        </group>
+                                    </page>
+                                    <page string="Page 2">
+                                        <group string="BENDED ACCESSORIES"></group>
+                                        <group string="Types">
+                                            <group><field name="end_flashing" /></group>
+                                            <group><field name="end_wall_flashing" /></group>
+                                            <group><field name="wall_flashing" /></group>
+                                            <group><field name="ridge_flashing" /></group>
+                                            <group><field name="ridge_wall_flashing" /></group>
+                                            <group><field name="crapping" /></group>
+                                            <group><field name="color_d" /></group>
+                                            <group><field name="thickness_d" /></group>
+                                            <group><field name="standard" /></group>
+                                            <group><field name="per_actual" /></group>
+                                            <group><field name="pmpi" /></group>
+                                            <group><field name="regret_wall_other" /></group>
+                                            <group><field name="regret_wall_pmpi" /></group>
+                                            <group><field name="masonry_work_other" /></group>
+                                            <group><field name="masonry_work_pmpi" /></group>
+                                        </group>
+                                        <group  string="NAILER">
+                                            <group string="Roof Purlins">
+                                                <field name="roofpurlins" />
+                                            </group>
+                                            <group string="Side Girts">
+                                                <field name="sidegirts" />
+                                            </group>
+                                        </group>
+                                        <group string="ROOF SPAN">
+                                            <group><field name="max_lengths" /></group>
+                                            <group><field name="roof_pitch" /></group>
+                                            <group><field name="curve_roof" /></group>
+                                        </group>
+                                        <group string="SKYLIGHTS">
+                                            <group><field name="require" /></group>
+                                            <group><field name="not_require" /></group>
+                                            <group><field name="thickness_e" /></group>
+                                            <group><field name="max_lengthsa" /></group>
+                                        </group>
+                                        <group string="INSULATION">
+                                            
+                                            <group><field name="requires" /></group>
+                                            <group><field name="types_d" /></group>
+                                            <group><field name="thickness_f" /></group>
+                                            <group><field name="not_require" /></group>
+                                            <group><field name="with_wiremesh" /></group>
+                                            <group><field name="types_e" /></group>
+                                            <group><field name="without_wiremesh" /></group>
+                                            <group><field name="gi_wire" /></group>
+                                            <group><field name="spacing" /></group>
+                                        </group>
+                                        <group string="GUTTER HANGERS">
+                                            
+                                            <group><field name="by_pmpi" /></group>
+                                            <group><field name="by_others" /></group>
+                                            <group><field name="color_finish" /></group>
+                                            <group><field name="bolted_structure" /></group>
+                                            <group><field name="welded_structure" /></group>
+                                            <group><field name="size" /></group>
+                                        </group>
+                                        <group string="DECKING PROFILE">
+                                            
+                                            <group><field name="monolithic" /></group>
+                                            <group><field name="steel_beams" /></group>
+                                            <group><field name="shear" /></group>
+                                            <group><field name="closure_requirement" /></group>
+                                            <group><field name="metal" /></group>
+                                        </group>
+                                        <group string="GUTTER">
+                                            
+                                            <group><field name="colored" /></group>
+                                            <group><field name="stainless_steel" /></group>
+                                            <group><field name="concrete" /></group>
+                                            <group><field name="spanish_type" /></group>
+                                            <group><field name="box_type" /></group>
+                                        </group>
+                                        <group string="Connection">
+                                            <group><field name="revited" /></group>
+                                            <group><field name="welded" /></group>
+                                            <group><field name="gas" /></group>
+                                            <group><field name="tig" /></group>
+                                            <group><field name="seam" /></group>
+                                            <group><field name="glutter_flashing" /></group>
+                                            <group><field name="requireds" /></group>
+                                            <group><field name="not_requireds" /></group>
+                                        </group>
+                                    </page>
+                                    <page string="Page 3">
+                                        <group string="LOUVERS">
+                                            <group><field name="single_pass" /></group>
+                                            <group><field name="double_pass" /></group>
+                                            <group><field name="triple_pass" /></group>
+                                        </group>
+                                        <group string="PURLINS (Light Gauge)">
+                                            
+                                            <group><field name="lc" /></group>
+                                            <group><field name="lz" /></group>
+                                            <group><field name="hat_sections" /></group>
+                                        </group>
+                                        <group string="FASCIA">
+                                            
+                                            <group><field name="fiber_cement" /></group>
+                                            <group><field name="metal_fascia" /></group>
+                                            <group><field name="woodss" /></group>
+                                        </group>
+                                        <group string="STRAINERS">
+                                            
+                                            <group><field name="stainless" /></group>
+                                            <group><field name="ordinary" /></group>
+                                        </group>
+                                        <group string="SLEEVES">
+                                            
+                                            <group><field name="stainless_a" /></group>
+                                            <group><field name="ordinary_a" /></group>
+                                        </group>
+                                        <group string="OTHERS">
+                                            
+                                            <group><field name="sealant" /></group>
+                                            <group><field name="recommended" /></group>
+                                        </group>
+                                        <group string="TYPES OF PROJECT">
+                                            
+                                            <group><field name="residential" /></group>
+                                            <group><field name="commercial" /></group>
+                                            <group><field name="industrial" /></group>
+                                            <group><field name="government" /></group>
+                                            <group><field name="institutional" /></group>
+                                            <group><field name="mass_housing" /></group>
+                                        </group>
+                                        <group string="LOCATION">
+                                            
+                                            <group><field name="industrial_park" /></group>
+                                            <group><field name="populated_areas" /></group>
+                                            <group><field name="exclusive_subdivision" /></group>
+                                        </group>
+                                        <group string="TYPES OF CONTRACT">
+                                            
+                                            <group><field name="lump_sum" /></group>
+                                            <group><field name="itemized" /></group>
+                                        </group>
+                                        <group string="BID CONTRACT DOCUMENTS">
+                                            
+                                            <group><field name="avail" /></group>
+                                            <group><field name="not_avail" /></group>
+                                        </group>
+                                        <group string="WORKING HOURS">
+                                            
+                                            <group><field name="daytime" /></group>
+                                            <group><field name="nighttime" /></group>
+                                        </group>
+                                        <group string="PRE CONTRACT ARRANGEMENTS">
+                                            <group><field name="implementation_date" /></group>
+                                            <group><field name="materials_delivery_date" /></group>
+                                            <group><field name="structure_turnover_date" /></group>
+                                            <group><field name="length_max" /></group>
+                                            <group><field name="manpower_max" /></group>
+                                        </group>
+                                        <group string="LIFTING EQUIPMENT">
+                                            
+                                            <group><field name="manual" /></group>
+                                            <group><field name="mechanical" /></group>
+                                        </group>
+                                        <group string="SAFETY/SITE REQUIREMENTS">
+                                            <group><field name="site_id" /></group>
+                                            <group><field name="medical_exam" /></group>
+                                            <group><field name="hard_hat" /></group>
+                                            <group><field name="safety_belt" /></group>
+                                            <group><field name="body_harness" /></group>
+                                            <group><field name="safety_shoes" /></group>
+                                            <group><field name="uniforms" /></group>
+                                            <group><field name="servce_vehicle" /></group>
+                                        </group>
+                                        <group string="Clearances">
+                                            <group><field name="barangay" /></group>
+                                            <group><field name="police" /></group>
+                                            <group><field name="nbi" /></group>
+                                        </group>
+                                        <group string="TEMPORARY FACILITIES">
+                                            
+                                            <group><field name="by_client" /></group>
+                                            <group><field name="by_pmpi" /></group>
+                                            <group><field name="field_office" /></group>
+                                        </group>
+                                        <group string="Bunk House">
+                                            <group><field name="onsite" /></group>
+                                            <group><field name="offsite" /></group>
+                                            <group><field name="servce_vehicle" /></group>
+                                            <group><field name="portable_water" /></group>
+                                            <group><field name="electricity" /></group>
+                                        </group>
+                                        <group><field name="others_con" /></group>
+                                    </page>
+                                </notebook>
+                            </page>
+                            <page string="SIGNATORY">
+                                <group><field name="accomplish_by" /></group>
+                                <group><field name="accomplish_date" /></group>
+                            </page>
+                        </notebook>
+                        
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

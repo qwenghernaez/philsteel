@@ -1,0 +1,79 @@
+<odoo>
+	<data>
+
+		<record model="ir.actions.act_window" id="weeklyeport_action">
+            <field name="name">Weekly Accomplishment Report</field>
+            <field name="res_model">philsteel.weeklypas</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create your first report</p>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="weekly_tree_view">
+            <field name="name">weeklypas.tree</field>
+            <field name="model">philsteel.weeklypas</field>
+            <field name="arch" type="xml">
+               <tree string="Weekly Accomplishment Report">
+                    <field name="name" />
+                    <field name="types_of_contract" />
+                    <field name="statuss" />
+               </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="weekly_accomplishment_form_view">
+            <field name="name">weeklypas.form</field>
+            <field name="model">philsteel.weeklypas</field>
+            <field name="arch" type="xml">
+                <form string="Weekly Accomplishment Report">
+                    <header>
+                        <button name="action_approved" string="Approved" type="object" class="btn-primary" attrs="{'invisible': ['|','|',('statuss','!=','draft')]}" />
+                        <field name="statuss" widget="statusbar" options="{'fold_field': 'fold'}" />
+                    </header>
+                    <sheet>
+                        <group string="General">
+                                <field name="name" />
+                                
+                                <field name="types_of_contract" />
+                                <field name="ic_no" />
+                            <group>
+                                <field name="aic_no" />
+                            </group>
+                            <group>
+                                <field name="ic_amount" />
+                            </group>
+                            <group>
+                                <field name="sc_no" />
+                            </group>
+                            <group>
+                                <field name="is_group" />
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Previous">
+                                <group><field name="percent_prev" /></group>
+                                <group><field name="amount_prev" /></group>
+                            </page>
+                            <page string="This Period">
+                                <group><field name="percent_thisperiod" /></group>
+                                <group><field name="period_amount" /></group>
+                            </page>
+                            <page string="To Date">
+                                <group><field name="percent_todate" /></group>
+                                <group><field name="todate_amount" /></group>
+                            </page>
+                            <page string="Signatory">
+                                <group><field name="proj_incharge" /></group>
+                                <group><field name="client_rep" /></group>
+                            </page>
+                        </notebook>
+                       
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+	</data>
+</odoo>

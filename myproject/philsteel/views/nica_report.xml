@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Custom report-->
+<odoo>
+<template id="report_nica_document">
+    <t t-call="report.external_layout">
+        <div class="page">
+            <div class="row">
+                <center><h4><b><u>NOTICE OF INSTALLATION COMPLETION AND ACCEPTANCE</u></b></h4></center>
+            </div>
+            
+               
+        </div>
+    </t>
+</template>
+ 
+<template id="report_nica">
+    <t t-call="report.html_container">
+        <t t-foreach="docs" t-as="doc">
+            <t t-call="philsteel.report_nica_document" t-lang="doc.partner_id.lang"/>
+        </t>
+    </t>
+</template>
+</odoo>

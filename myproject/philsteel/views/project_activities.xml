@@ -1,0 +1,41 @@
+<odoo>
+	<data>
+
+		<record model="ir.actions.act_window" id="project_activities_action">
+            <field name="name">Project Activities</field>
+            <field name="res_model">philsteel.projectactivities</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+     	<record model="ir.ui.view" id="project_activities_form_view">
+            <field name="name">projectactivities.form</field>
+            <field name="model">philsteel.projectactivities</field>
+            <field name="arch" type="xml">
+                <form string="Center Form">
+                    
+                    <sheet>
+                        <group>
+                            <field name="name" />
+                            <field name="status" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="project_activities_tree_view">
+            <field name="name">project_manpower.tree</field>
+            <field name="model">philsteel.projectactivities</field>
+            <field name="arch" type="xml">
+               <tree string="Activities">
+                   <field name="name"/>
+                   <field name="status"/>
+               </tree>
+            </field>
+        </record>
+
+	</data>
+</odoo>

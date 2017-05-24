@@ -1,0 +1,211 @@
+<odoo>
+  <data>
+
+      <menuitem id="philsteel" name="Philsteel" sequence="10" />
+
+
+
+
+        <!--General-->
+        <menuitem id="general"
+                  name="General"
+                  parent="philsteel"
+                  sequence="1" />
+
+
+                  <!--Dashboard-->
+                  <menuitem id="dashboard"
+                            name="Dashboard"
+                            parent="general"
+                            sequence="1"
+                            action="open_board_session" />
+               
+
+                  <!--Measurement Requests Parent-->
+                  <menuitem id="measurement_requests_parent"
+                            name="Measurement Requests"
+                            parent="general"
+                            sequence="2" />
+
+                        <!--Measurement Requests-->
+                        <menuitem id="measurement_requests"
+                                  name="RFAMs"
+                                  parent="measurement_requests_parent"
+                                  sequence="2"
+                                  action="measurement_request_action" />
+
+
+                        <!--Measurement Illustrations-->
+                        <menuitem id="measurement_illustrations"
+                                  name="RFAMs Illustrations"
+                                  parent="measurement_requests_parent"
+                                  sequence="3"
+                                  action="rfamimages_action" />
+
+                  <!--Inspection and Safety report-->
+                  <menuitem id="pisreport"
+                            name="Inspection and Safety Report"
+                            parent="general"
+                            sequence="3"
+                            action="pisreport_action" />
+
+
+                  <!--Project Information Sheet report-->
+                  <menuitem id="pisreport_1"
+                            name="Project Information Sheet"
+                            parent="general"
+                            sequence="4"
+                            action="sheet_action" />
+
+
+                  <!--Project Accomplishment  report-->
+                  <menuitem id="pareport"
+                            name="Project Accomplishment Report"
+                            parent="general"
+                            sequence="5"
+                            action="accomplishment_report_action" />
+
+
+                  <menuitem id="reports"
+                            name="Reports"
+                            parent="general"
+                            sequence="6"
+                            action="pisreport_action" />
+
+
+                        <!--Measurement Requests-->
+                        <menuitem id="weekly"
+                                  name="Weekly Acomplishment Report"
+                                  parent="reports"
+                                  sequence="7"
+                                  action="weeklyeport_action" />
+
+
+                        <!--Measurement Illustrations-->
+                        <menuitem id="daily"
+                                  name="Daily Project Acomplishment Report"
+                                  parent="reports"
+                                  sequence="6"
+                                  action="daily_accomplishment_report_action" />
+
+
+                        <!--NICA-->
+                        <menuitem id="nica"
+                                  name="Notice of Installation Completion and Acceptance"
+                                  parent="reports"
+                                  sequence="1"
+                                  action="philsteel_nica_action" />
+
+
+                        <!--ccaa-->
+                        <menuitem id="ccaa"
+                                  name="Certificate of Completion and Acceptance"
+                                  parent="reports"
+                                  sequence="2"
+                                  action="CCAA_action" />
+
+
+                        <!--ccaa-->
+                        <menuitem id="imquiry"
+                                  name="Customer Inquiry Form"
+                                  parent="reports"
+                                  sequence="3"
+                                  action="inquire_action" />
+
+
+                        <!--ccaa-->
+                        <menuitem id="iras"
+                                  name="Investigation / Retification"
+                                  parent="reports"
+                                  sequence="4"
+                                  action="iras_action" />
+
+
+                        <!--ccaa-->
+                        <menuitem id="cicf"
+                                  name="Customer Installation Complain"
+                                  parent="reports"
+                                  sequence="5"
+                                  action="cicf_action" />
+
+
+        <!--Misc-->
+        <menuitem id="misc"
+                  name="Misc"
+                  parent="philsteel"
+                  sequence="2" />
+
+                  <!--Positions-->
+                  <menuitem id="positions"
+                            name="Positions"
+                            parent="misc"
+                            sequence="1"
+                            action="position_action" />
+
+
+                  <!--Materials-->
+                  <menuitem id="materials"
+                            name="Materials"
+                            parent="misc"
+                            sequence="2"
+                            action="product_action" />
+
+                  <!--Contacts-->
+                  <menuitem id="contacts"
+                            name="Contacts"
+                            parent="misc"
+                            sequence="3"
+                            action="contacts_action" />
+
+                  <!--Projects-->
+                  <menuitem id="projects"
+                            name="Projects"
+                            parent="misc"
+                            sequence="4"
+                            action="philsteel_project_action" />
+
+                  <!--Projects-->
+                  <menuitem id="workscope"
+                            name="Work Scope"
+                            parent="misc"
+                            sequence="5"
+                            action="workscope_action" />
+
+
+                  <!--Projects-->
+                  <menuitem id="projectmanpower"
+                            name="Project Manpower"
+                            parent="misc"
+                            sequence="6"
+                            action="project_manpower_action" />
+
+                  <!--Projects-->
+                  <menuitem id="projectactivities"
+                            name="Project Activities"
+                            parent="misc"
+                            sequence="7"
+                            action="project_activities_action" />
+
+                  <!--Android User-->
+                  <menuitem id="android"
+                            name="Android Users"
+                            parent="misc"
+                            sequence="8"
+                            action="android_user_action" />
+
+                  <!--Materials Installed-->
+                  <menuitem id="materials_installed"
+                            name="Materials Installed"
+                            parent="misc"
+                            sequence="9"
+                            action="materials_installed_action" />
+
+                  <!--Departments-->
+                  <menuitem id="departments"
+                            name="Department"
+                            parent="misc"
+                            sequence="10"
+                            action="departmentx_action" />
+                            
+  </data>
+</odoo>

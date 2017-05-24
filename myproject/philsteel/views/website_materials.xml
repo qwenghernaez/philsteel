@@ -1,0 +1,33 @@
+<odoo>
+    <data>
+
+        <template id="website_materials">
+            <t t-call="website.layout">
+                <t t-set="title">Materials</t>
+                <div class="oe_structure">
+                    <div class="container">
+                        <h1> MATERIALS </h1>
+                        
+                            <table>
+                                <tr>
+                                    <th> Material Name </th>
+                                    <th> Material Price            </th>
+                                    <th> Material Description       </th>
+                                </tr>
+                                <t t-foreach="materials" t-as="material">
+                                <tr>
+                                    <td><t t-esc="material.name"/></td>
+                                    <td><t t-esc="material.prices"/></td>
+                                    <td><t t-esc="material.description"/></td>
+                                </tr>
+                                </t>
+                            </table>
+                        
+                    </div>
+                </div>
+            </t>
+            
+        </template>
+
+    </data>
+</odoo>

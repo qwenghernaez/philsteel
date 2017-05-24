@@ -1,0 +1,5 @@
+<odoo>
+	<data>
+		<report id="nica_report" string="Nica" model="philsteel.nica" report_type="qweb-pdf" file="philsteel.report_nica_document" name="philsteel.report_nica_document"/>
+	</data>
+</odoo>
